@@ -10,4 +10,5 @@ Macbook M3 Max(16 cores, 128GB Memory)
 ### Cost criteria
 1. T-depth
 2. qubits
-3. TBD
+3. Consumption Time
+4. TBD
