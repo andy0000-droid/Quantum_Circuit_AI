@@ -22,7 +22,8 @@ def send_discord_notification(message):
     webhook_url = "https://discord.com/api/webhooks/1357570178296188948/B3gq2UxdcsHne6pU8xRl5gM-sJ7ZK8cASg-6HFjqgSQX07akafV3VRPDKcMIe8TMBP2b"
     response = requests.post(webhook_url, json=data)
     if response.status_code == 204:
-        print("Notification sent successfully!")
+        # print("Notification sent successfully!")
+        pass
     else:
         print(f"Failed to send notification. Status code: {response.status_code}")
 
