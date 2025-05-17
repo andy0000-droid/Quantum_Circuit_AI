@@ -1,5 +1,6 @@
-# TODO List
-
+[TODO](#TODO)
+[DOING](#DOING)
+[DONE](#DONE)
 ## TODO
 - Implement Diffusion Model from scratch
 - Implement Transformer Model from scratch
