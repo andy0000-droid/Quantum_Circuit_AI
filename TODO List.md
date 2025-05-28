@@ -6,7 +6,7 @@
 - Implement Transformer Model from scratch
 - Search for MQT Bench dataset
     - Write code to load .h5 files
-- Make the Discord Notification Bot and Time cacluate Function turn to library
+- Make the Discord Notification Bot and Time calculate Function turn to library
 ## DOING
 - 
 
