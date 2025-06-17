@@ -1,4 +1,6 @@
-.API_KEY
+# API Keys for various services
+apikey.json
+
 __pycache__
 *.pyc
 runtime.py
