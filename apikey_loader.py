@@ -26,7 +26,7 @@ def get_api_key():
 
 
 if __name__ == "__main__":
-    # Test the function
-    key_dict = get_api_key()
-    print(key_dict)
-    print(key_dict["gemini".capitalize()])
+    # Example code
+    __Key_dictonary__ = get_api_key()
+    print(__Key_dictonary__["Gemini".capitalize()])
+    print(__Key_dictonary__["Qiskit".capitalize()])
