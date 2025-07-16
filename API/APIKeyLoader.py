@@ -59,7 +59,7 @@ class APIKeyLoader:
             print(e)
             return None
 
-    def Key_lists(self):
+    def key_lists(self):
         """
         Prints all API keys list.
         """
@@ -71,7 +71,7 @@ class APIKeyLoader:
 if __name__ == "__main__":
     # Example code
     api_loader = APIKeyLoader()
-    api_loader.Key_lists()
+    api_loader.key_lists()
     print(api_loader.get_key("Qiskit"))  # Example for Qiskit
     api_loader.get_key("Geminasdfi")
     key_in = sys.argv[1] if len(sys.argv) > 1 else None
