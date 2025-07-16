@@ -1,7 +1,7 @@
 """
-gemini.py
-This module contains a function to read an API key from a file named ".API_KEY" in the current working directory.
-It is designed to be used in a Python script or module where the API key is needed for authentication or access to a service.
+APIKeyLoader.py - A module to load API keys from a JSON file.
+This module defines the APIKeyLoader class, which is responsible for loading API keys
+from a JSON file named "apikey.json" located in the API directory.
 """
 
 import os
