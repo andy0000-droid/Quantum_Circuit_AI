@@ -59,19 +59,29 @@ class APIKeyLoader:
             print(e)
             return None
 
-    def key_lists(self):
+    def key_list(self):
         """
-        Prints all API keys list.
+        Returns a list of all API keys.
         """
         keys = self.__load_keys__()
-        for service in keys:
-            print(f"{service}")
+        key_list = list(keys.keys())
+        return key_list
+
+    def help(self):
+        """
+        Prints the help message for the APIKeyLoader class.
+        """
+        print("APIKeyLoader is used to load API keys from a JSON file.")
+        print("You can use the following methods:")
+        print("1. get_key(key): Returns the API key for the specified service.")
+        print("2. key_list(): Returns a list of all available API keys.")
+        print("3. help(): Prints this help message.")
 
 
 if __name__ == "__main__":
     # Example code
     api_loader = APIKeyLoader()
-    api_loader.key_lists()
+    api_loader.key_list()
     print(api_loader.get_key("Qiskit"))  # Example for Qiskit
     api_loader.get_key("Geminasdfi")
     key_in = sys.argv[1] if len(sys.argv) > 1 else None
