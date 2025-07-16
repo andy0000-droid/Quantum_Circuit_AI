@@ -1,7 +1,7 @@
 # Quantum Circuit Artificial Inteligence
 ## AI for generate Quantum circuit
 
-### Project Object
+### Project Goal
 #### Artificial Intelligence for generate Quantum Circuit
 - Automated Quantum Circuit Generation
 - Automated Optimization for each cost metrics
