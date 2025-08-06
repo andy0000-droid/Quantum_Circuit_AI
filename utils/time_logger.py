@@ -51,6 +51,11 @@ class TimeLogger:
         self.performance_time = performance_time
         return result
 
+    @property
+    def get_perf_time(self):
+        """Get the performance time."""
+        return self.execution_time, self.performance_time
+
 
 if __name__ == "__main__":
     # Example usage
