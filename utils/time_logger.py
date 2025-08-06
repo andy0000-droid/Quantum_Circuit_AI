@@ -50,12 +50,6 @@ class TimeLogger:
         self.performance_time = performance_time
         return result
 
-    def get_calc_time(self):
-        """Calculates the execution time and performance time."""
-        if self.execution_time is None or self.performance_time is None:
-            raise ValueError("Execution time and performance time are not set.")
-        return self.execution_time, self.performance_time
-
 
 if __name__ == "__main__":
     # Example usage
