@@ -23,6 +23,7 @@ except ImportError as e:
     raise e
 
 
+# pylint: disable=too-few-public-methods
 class TimeLogger:
     """Class to log the execution time of methods."""
 
