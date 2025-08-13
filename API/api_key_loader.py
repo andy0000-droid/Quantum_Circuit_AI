@@ -22,29 +22,33 @@ class APIKeyLoader:
         """
         self.dir = os.path.dirname(__file__)
         self.filename = os.path.join(self.dir, filename)
-        self._key = None
+        self.key_list = None
+        self.data = None
 
-    def __load_keys__(self):
-        """
-        Loads API keys from the specified JSON file.
-        :return: A dictionary containing the API keys.
-        """
-        if not os.path.exists(self.filename):
-            raise FileNotFoundError(f"{self.filename} does not exist.")
+        try:
+            with open(self.filename, "r", encoding="UTF-8") as f:
+                self.data = json.load(f)
+                self.key_list = list(self.data.keys())
 
-        with open(self.filename, "r", encoding="UTF-8") as file:
-            return json.load(file)
+        except FileNotFoundError as e:
+            print("파일을 찾을 수 없습니다.")
+            raise FileNotFoundError(
+                "API key file not found. Please ensure 'apikey.json' exists in the API directory."
+            ) from e
 
-    def __ret_key__(self):
-        """
-        Retrieves the API key for the specified service.
-        :return: The API key for the specified service.
-        """
-        keys = self.__load_keys__()
-        if self._key in keys:
-            return keys[self._key]["key"]
-        else:
-            raise KeyError(f"API key for '{self._key}' not found.")
+        except UnicodeDecodeError as e:
+            print(f"인코딩 오류: {e}")  # 파일 인코딩 확인
+            raise UnicodeDecodeError("Encoding error in API key file.") from e
+
+        except json.JSONDecodeError as e:
+            print(f"JSON 문법 오류: {e.msg} (line {e.lineno}, col {e.colno})")
+            raise json.JSONDecodeError(
+                "Invalid JSON format in API key file.", e.doc, e.pos
+            ) from e
+
+        except OSError as e:
+            print(f"I/O 오류: {e}")
+            raise OSError("I/O error while accessing the API key file.") from e
 
     def get_key(self, key: str) -> str | None:
         """
@@ -52,20 +56,9 @@ class APIKeyLoader:
         :param key: The name of the service (e.g., 'Qiskit', 'Gemini').
         :return: The API key for the specified service.
         """
-        self._key = key
-        try:
-            return self.__ret_key__()
-        except KeyError as e:
-            print(e)
-            return None
-
-    def key_list(self):
-        """
-        Returns a list of all API keys.
-        """
-        keys = self.__load_keys__()
-        key_list = list(keys.keys())
-        return key_list
+        if key not in self.key_list:
+            raise KeyError(f"'{key}' is not a valid API key name.")
+        return self.data.get(key)["apikey"]
 
     def help(self):
         """
@@ -81,7 +74,7 @@ class APIKeyLoader:
 if __name__ == "__main__":
     # Example code
     api_loader = APIKeyLoader()
-    api_loader.key_list()
+    print(api_loader.key_list)
     print(api_loader.get_key("Qiskit"))  # Example for Qiskit
     api_loader.get_key("Geminasdfi")
     key_in = sys.argv[1] if len(sys.argv) > 1 else None
