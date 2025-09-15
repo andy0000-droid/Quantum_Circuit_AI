@@ -1,5 +1,8 @@
-.API_KEY
+apikey.json 
+Dataset/
+datasets/
 __pycache__
 *.pyc
 runtime.py
 .DS_Store
+.vscode/
