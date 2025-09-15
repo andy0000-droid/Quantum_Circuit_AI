@@ -45,7 +45,8 @@ class TimeLogger:
         print(f"Execution time: {execution_time} nano seconds", end=", ")
         print(f"Performance time: {performance_time} nano seconds")
         send_message(
-            f"Execution time: {execution_time} nano seconds, Performance time: {performance_time} nano seconds"
+            f"Execution time: {execution_time} nano seconds, " +
+            f"Performance time: {performance_time} nano seconds"
         )
         self.execution_time = execution_time
         self.performance_time = performance_time
